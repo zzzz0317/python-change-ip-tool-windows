@@ -1,2 +1,2 @@
 @echo off
-pyinstaller -F main.py --uac-admin
+pyinstaller -F main.py --uac-admin -i icon.ico
