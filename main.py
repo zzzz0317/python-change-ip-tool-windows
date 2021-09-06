@@ -3,6 +3,7 @@ import json
 import subprocess
 import ipaddress
 import traceback
+import sys
 
 config = {}
 
@@ -56,7 +57,7 @@ def is_ip_address(s):
 def err_exit(text):
     print("出现严重错误: {}".format(text))
     input("按回车退出\n")
-    exit(1)
+    sys.exit(1)
 
 
 def debug_print(text):
@@ -136,7 +137,7 @@ def change_ip(ipobj):
     if len(dns) != 0:
         print("DNS: {}".format(", ".join(dns)))
     if input("按回车继续，输入其它值将退出\n") != "":
-        exit(0)
+        sys.exit(0)
     print("设置静态IP地址")
     run_windows_command(command)
     print("清除DNS配置")
