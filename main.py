@@ -163,6 +163,7 @@ def run_windows_command(c):
 
 
 if __name__ == '__main__':
+    hello_world()
     try:
         read_config()
         check_config()
