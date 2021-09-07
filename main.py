@@ -189,7 +189,11 @@ if __name__ == '__main__':
         check_config()
         user_sel_ip()
         print("运行结束，欢迎您下次使用")
-        input("按回车退出\n")
+        if "debug_std_output" in config:
+            if config["debug_std_output"]:
+                input("按回车退出\n")
+                sys.exit(0)
+        time.sleep(2)
         # print(config)
     except Exception as ex:
         # traceback.print_exc()
