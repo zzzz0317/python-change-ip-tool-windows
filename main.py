@@ -61,8 +61,9 @@ def err_exit(text):
 
 
 def debug_print(text):
-    # print("DEBUG: {}".format(text))
-    pass
+    if "debug_std_output" in config:
+        if config["debug_std_output"]:
+            print("DEBUG: {}".format(text))
 
 
 def user_sel_ip():
@@ -157,6 +158,10 @@ def change_ip_dhcp():
 
 def run_windows_command(c):
     print("执行命令: {}".format(c))
+    if "debug_subprocess_disable" in config:
+        if config["debug_subprocess_disable"]:
+            print("由于在配置文件中设置了 \"debug_subprocess_disable\", 该命令未被执行。")
+            return 0
     p = subprocess.run(c, capture_output=True)
     out = p.stdout.decode(config["subprocess_encode"])
     print("运行结果: {}".format(out))

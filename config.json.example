@@ -24,5 +24,7 @@
       "address": "1.1.1.2",
       "netmask": "255.255.255.0"
     }
-  ]
+  ],
+  "debug_subprocess_disable": false,
+  "debug_std_output": false
 }
