@@ -176,9 +176,10 @@ def run_windows_command(c):
         p = subprocess.run(c, capture_output=True)
         out = p.stdout.decode(config["subprocess_encode"])
         print("运行结果: {}".format(out))
+        return p.returncode
     except:
         print("警告: 获得运行结果出错，请核查该命令是否被执行成功，以下为详细的错误信息。\n{}".format(traceback.format_exc()))
-    return p.returncode
+    return -1
 
 
 if __name__ == '__main__':
