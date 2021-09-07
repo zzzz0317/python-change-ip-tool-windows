@@ -4,6 +4,7 @@ import subprocess
 import ipaddress
 import traceback
 import sys
+import time
 
 config = {}
 
@@ -141,6 +142,15 @@ def change_ip(ipobj):
         sys.exit(0)
     print("设置静态IP地址")
     run_windows_command(command)
+    print("等待2s", end="")
+    time.sleep(0.5)
+    print(".", end="")
+    time.sleep(0.5)
+    print(".", end="")
+    time.sleep(0.5)
+    print(".", end="")
+    time.sleep(0.5)
+    print(".")
     print("清除DNS配置")
     run_windows_command(
         "netsh interface ip set dnsservers name=\"{}\" source=static address=none register=both"
