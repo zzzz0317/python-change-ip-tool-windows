@@ -172,9 +172,12 @@ def run_windows_command(c):
         if config["debug_subprocess_disable"]:
             print("由于在配置文件中设置了 \"debug_subprocess_disable\", 该命令未被执行。")
             return 0
-    p = subprocess.run(c, capture_output=True)
-    out = p.stdout.decode(config["subprocess_encode"])
-    print("运行结果: {}".format(out))
+    try:
+        p = subprocess.run(c, capture_output=True)
+        out = p.stdout.decode(config["subprocess_encode"])
+        print("运行结果: {}".format(out))
+    except:
+        print("警告: 获得运行结果出错，请核查该命令是否被执行成功，以下为详细的错误信息。\n{}".format(traceback.format_exc()))
     return p.returncode
 
 
