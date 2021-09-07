@@ -68,15 +68,16 @@ def debug_print(text):
 
 
 def user_sel_ip():
-    print("可用配置列表")
-    print("0. 使用DHCP自动配置IP和DNS")
-    for i in range(1, len(config["iplist"]) + 1):
-        print("{}. {}".format(i, config["iplist"][i - 1]["name"]))
-        debug_print(config["iplist"][i - 1])
-
-    print("q. 退出")
-    input_valid_range = range(0, len(config["iplist"]) + 1)
     while True:
+        print("========== 请选择 ===========")
+        print("0. 使用DHCP自动配置IP和DNS")
+        for i in range(1, len(config["iplist"]) + 1):
+            print("{}. {}".format(i, config["iplist"][i - 1]["name"]))
+            debug_print(config["iplist"][i - 1])
+
+        print("q. 退出")
+        print("a. 关于")
+        input_valid_range = range(0, len(config["iplist"]) + 1)
         input_string = input("请输入序号:\n")
         if input_string.isdigit():
             input_number = int(input_string)
@@ -91,6 +92,8 @@ def user_sel_ip():
                 print("输入有误，不存在的配置项")
         elif input_string.lower() == "q":
             break
+        elif input_string.lower() == "a":
+            zz_about()
         else:
             print("输入有误，请重试")
 
