@@ -1,6 +1,5 @@
 enabled_art = []
-enabled_art.append("""
-              ,----------------,              ,---------,
+enabled_art.append("""              ,----------------,              ,---------,
          ,-----------------------,          ,"        ,"|
        ,"                      ,"|        ,"        ,"  |
       +-----------------------+  |      ,"        ,"    |
@@ -18,8 +17,7 @@ enabled_art.append("""
   / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,"
  /_==__==========__==_ooo__ooo=_/'   /___________,"
 """)
-enabled_art.append("""
-         ┌─┐         ┌─┐
+enabled_art.append("""         ┌─┐         ┌─┐
       ┌──┘ ┴─────────┘ ┴──┐
       │                   │
       │        ───        │
@@ -40,8 +38,7 @@ enabled_art.append("""
             │ ─┤ ─┤         │ ─┤ ─┤
             └──┴──┘         └──┴──┘
 """)
-enabled_art.append("""
-                       _oo0oo_
+enabled_art.append("""                       _oo0oo_
                       o8888888o
                       88" . "88
                       (| -_- |)
@@ -63,8 +60,7 @@ enabled_art.append("""
                佛祖保佑         永无BUG
 
 """)
-enabled_art.append("""
- _________________________________________
+enabled_art.append(""" _________________________________________
 ( rm -rf /bin /boot /dev /etc /home /init )
 ( /lib /lib32 /lib64 /libx32 /media /mnt  )
 ( /opt /proc /root /run /sbin /snap /srv  )

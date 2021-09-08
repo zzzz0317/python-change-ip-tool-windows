@@ -5,14 +5,12 @@ import os
 config_critial_key = ["iface", "iplist", "subprocess_encode"]
 config_ipobj_critial_key = ["name", "address", "netmask"]
 zz_product_name = "IP切换器 by 张哲"
-zz_header = """
-==============================
+zz_header = """==============================
 {}
 home.asec01.net
 ==============================
 """.format(zz_product_name)
-zz_license = """
-MIT License
+zz_license = """MIT License
 
 Copyright (c) 2021 张哲
 
