@@ -71,6 +71,7 @@ def finish_exit():
         input("按回车退出\n")
         sys.exit(0)
     time.sleep(2)
+    sys.exit(0)
 
 
 def err_exit(text):
