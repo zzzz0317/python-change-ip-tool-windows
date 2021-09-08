@@ -1,14 +1,16 @@
 from asciiart import *
 import random
+import os
 
 config_critial_key = ["iface", "iplist", "subprocess_encode"]
 config_ipobj_critial_key = ["name", "address", "netmask"]
+zz_product_name = "IP切换器 by 张哲"
 zz_header = """
 ==============================
-IP切换器 by 张哲
+{}
 home.asec01.net
 ==============================
-"""
+""".format(zz_product_name)
 zz_license = """
 MIT License
 
@@ -40,5 +42,6 @@ def zz_about():
 
 
 def hello_world():
+    os.system("title {}".format(zz_product_name))
     print(zz_header)
     print(enabled_art[random.randint(0, len(enabled_art) - 1)])
