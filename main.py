@@ -16,6 +16,10 @@ def read_config():
             config = json.load(f)
     except FileNotFoundError:
         err_exit("配置文件 \"config.json\" 不存在")
+    except json.decoder.JSONDecodeError as ex:
+        err_exit("读取配置文件失败\n{}".format(repr(ex)))
+    except Exception as ex:
+        err_exit("读取配置文件失败，{}\n{}".format(repr(ex), traceback.format_exc()))
 
 
 def check_config():
@@ -47,6 +51,12 @@ def check_config():
                     err_exit("\n{}\n该IP配置中DNS地址有误".format(json.dumps(d)))
 
 
+def get_config(key, default_value):
+    if key in config:
+        return config[key]
+    return default_value
+
+
 def is_ip_address(s):
     try:
         ipaddress.ip_address(s)
@@ -62,9 +72,8 @@ def err_exit(text):
 
 
 def debug_print(text):
-    if "debug_std_output" in config:
-        if config["debug_std_output"]:
-            print("DEBUG: {}".format(text))
+    if get_config("debug_std_output", False):
+        print("DEBUG: {}".format(text))
 
 
 def user_sel_ip():
@@ -171,10 +180,9 @@ def change_ip_dhcp():
 
 def run_windows_command(c):
     print("执行命令: {}".format(c))
-    if "debug_subprocess_disable" in config:
-        if config["debug_subprocess_disable"]:
-            print("由于在配置文件中设置了 \"debug_subprocess_disable\", 该命令未被执行。")
-            return 0
+    if get_config("debug_subprocess_disable", False):
+        print("由于在配置文件中设置了 \"debug_subprocess_disable\", 该命令未被执行。")
+        return 0
     try:
         p = subprocess.run(c, capture_output=True)
         out = p.stdout.decode(config["subprocess_encode"])
@@ -192,10 +200,9 @@ if __name__ == '__main__':
         check_config()
         user_sel_ip()
         print("运行结束，欢迎您下次使用")
-        if "debug_std_output" in config:
-            if config["debug_std_output"]:
-                input("按回车退出\n")
-                sys.exit(0)
+        if get_config("debug_std_output", False):
+            input("按回车退出\n")
+            sys.exit(0)
         time.sleep(2)
         # print(config)
     except Exception as ex:
