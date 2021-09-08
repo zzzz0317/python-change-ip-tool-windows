@@ -65,6 +65,14 @@ def is_ip_address(s):
         return False
 
 
+def finish_exit():
+    print("运行结束，欢迎您下次使用")
+    if get_config("debug_std_output", False):
+        input("按回车退出\n")
+        sys.exit(0)
+    time.sleep(2)
+
+
 def err_exit(text):
     print("出现严重错误: {}".format(text))
     input("按回车退出\n")
@@ -100,7 +108,7 @@ def user_sel_ip():
             else:
                 print("输入有误，不存在的配置项")
         elif input_string.lower() == "q":
-            break
+            finish_exit()
         elif input_string.lower() == "a":
             zz_about()
         else:
@@ -198,12 +206,11 @@ if __name__ == '__main__':
     try:
         read_config()
         check_config()
-        user_sel_ip()
-        print("运行结束，欢迎您下次使用")
-        if get_config("debug_std_output", False):
-            input("按回车退出\n")
-            sys.exit(0)
-        time.sleep(2)
+        while True:
+            user_sel_ip()
+            if get_config("exit_when_finish", True):
+                break
+        finish_exit()
         # print(config)
     except Exception as ex:
         # traceback.print_exc()

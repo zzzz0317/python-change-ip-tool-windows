@@ -1,5 +1,6 @@
 {
   "subprocess_encode": "gbk",
+  "exit_when_finish": true,
   "iface": "以太网",
   "iplist": [
     {
