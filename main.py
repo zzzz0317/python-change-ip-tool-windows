@@ -109,7 +109,7 @@ def user_sel_ip():
             else:
                 print("输入有误，不存在的配置项")
         elif input_string.lower() == "q":
-            finish_exit()
+            sys.exit(0)
         elif input_string.lower() == "a":
             zz_about()
         else:
