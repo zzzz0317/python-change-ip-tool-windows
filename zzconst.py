@@ -2,7 +2,7 @@ from asciiart import *
 import random
 import os
 
-config_critial_key = ["iface", "iplist", "subprocess_encode"]
+config_critial_key = ["iface", "iplist"]
 config_ipobj_critial_key = ["name", "address", "netmask"]
 zz_product_name = "IP切换器 by 张哲"
 zz_header = """==============================

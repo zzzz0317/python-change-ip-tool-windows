@@ -185,7 +185,7 @@ def run_windows_command(c):
         return 0
     try:
         p = subprocess.run(c, capture_output=True)
-        out = p.stdout.decode(config["subprocess_encode"])
+        out = p.stdout.decode(get_config("subprocess_encode", "gbk"))
         print("运行结果: {}".format(out))
         return p.returncode
     except:

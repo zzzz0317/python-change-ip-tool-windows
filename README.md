@@ -20,7 +20,7 @@
 | netmask                  | 子网掩码                     | 字符串                   | 必填项无默认值 | IP配置对象 |
 | gateway                  | 网关IP地址                   | 字符串                   | 空             | IP配置对象 |
 | dns                      | DNS                        | 字符串或含有字符串的数组 | 空             | IP配置对象 |
-| subprocess_encode        | 执行命令时打印回显使用的编码 | 字符串                   | 必填项无默认值 | 根         |
+| subprocess_encode        | 执行命令时打印回显使用的编码 | 字符串                   | "gbk"          | 根         |
 | exit_when_finish         | 配置完成后是否自动退出       | 布尔值                   | true           | 根         |
 | debug_subprocess_disable | 调试模式，跳过执行命令       | 布尔值                   | false          | 根         |
 | debug_std_output         | 调试模式，打印更多调试信息   | 布尔值                   | false          | 根         |
